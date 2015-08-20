@@ -15,6 +15,22 @@
                 <td align="center"><b><u>City</u></b></td>
                 <td align="center"><b><u>League</u></b></td>
             </tr>
+
+            <tr>
+                <form action="/team/add" method="post">
+                    <td>
+                        <input type="text" name="name"/>
+                    </td>
+                    <td>
+                        <input type="text" name="city"/>
+                    </td>
+                    <td>
+                        <input type="text" name="sport"/>
+                        <input type="submit" value="Add"/>
+                    </td>
+                </form>
+            </tr>
+
         </thead>
 
         <tbody>
@@ -25,5 +41,6 @@
             </tr>
         </tbody>
     </table>
+
 </body>
 </html>
