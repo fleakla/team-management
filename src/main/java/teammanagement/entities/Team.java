@@ -1,8 +1,8 @@
 package teammanagement.entities;
 
-import lombok.Getter;
+import lombok.AccessLevel;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,9 +14,8 @@ import java.util.List;
  * Created by fleak on 8/20/15.
  * @author Lewis A. Fleak
  */
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 public class Team {
 

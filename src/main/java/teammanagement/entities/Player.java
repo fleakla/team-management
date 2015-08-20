@@ -1,8 +1,7 @@
 package teammanagement.entities;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,10 +13,9 @@ import java.util.Date;
  * Created by fleak on 8/20/15.
  * @author Lewis A. Fleak
  */
-@Getter
-@Setter
-@Entity
+@Data
 @NoArgsConstructor
+@Entity
 public class Player {
 
     @Id @GeneratedValue

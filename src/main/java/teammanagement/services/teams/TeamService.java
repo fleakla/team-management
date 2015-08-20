@@ -16,7 +16,7 @@ import java.util.List;
 public class TeamService {
 
     @Autowired
-    private TeamRepository teamRepository;
+    TeamRepository teamRepository;
 
     public List<Team> findAll() {
         return Lists.newArrayList(teamRepository.findAll());
