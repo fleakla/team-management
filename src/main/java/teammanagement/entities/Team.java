@@ -24,14 +24,19 @@ public class Team {
 
     private String teamName;
     private String location;
+    private String sport;
 
     @OneToMany(mappedBy = "currentTeam")
     private List<Player> members;
 
 
     public Team(String teamName, String location) {
-        this.teamName = teamName;
-        this.location = location;
+        this(teamName, location, "");
     }
 
+    public Team(String teamName, String location, String sport) {
+        this.teamName = teamName;
+        this.location = location;
+        this.sport = sport;
+    }
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>All the Teams</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td colspan="3" align="center">Registered Teams</td>
+            </tr>
+
+            <tr>
+                <td align="center"><b><u>Name</u></b></td>
+                <td align="center"><b><u>City</u></b></td>
+                <td align="center"><b><u>League</u></b></td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="team : ${teams}">
+                <td th:text="${team.teamName}"/>
+                <td th:text="${team.location}"/>
+                <td th:text="${team.sport}"/>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
