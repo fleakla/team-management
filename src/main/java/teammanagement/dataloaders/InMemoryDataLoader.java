@@ -16,15 +16,11 @@ import java.util.List;
 @Service
 public class InMemoryDataLoader {
 
+    @Autowired
     private TeamRepository teamRepository;
 
-    @Autowired
-    public InMemoryDataLoader(TeamRepository teamRepository) {
-        this.teamRepository = teamRepository;
-    }
-
     @PostConstruct
-    private void loadData() {
+    public void loadDefaultData() {
         List<Team> teamList = Lists.newArrayList();
 
         teamList.add(new Team("Blues", "Saint Louis", "NHL Hockey"));
@@ -36,5 +32,9 @@ public class InMemoryDataLoader {
         teamList.add(new Team("Manchester United", "Manchester", "English Premier League"));
 
         teamRepository.save(teamList);
+    }
+
+    public void dropAllData() {
+        teamRepository.deleteAll();
     }
 }

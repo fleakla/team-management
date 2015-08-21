@@ -1,6 +1,7 @@
 package teammanagement.controllers;
 
 import com.google.common.collect.Lists;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,8 @@ import teammanagement.services.teams.TeamService;
 @Controller
 public class TeamController {
 
+    private static final String DEFAULT_REDIRECT_TO_TEAM = "redirect:/team/";
+
     @Autowired
     private TeamService teamService;
 
@@ -27,12 +30,21 @@ public class TeamController {
     }
 
     @RequestMapping(value = "/team/add", method = RequestMethod.POST)
-    public String addTeam(Model model, @RequestParam String name, @RequestParam String city, @RequestParam String sport) {
+    public String addTeam(Model model, @RequestParam @NonNull String name, @RequestParam String city, @RequestParam String sport) {
 
-        teamService.add(Lists.newArrayList(new Team(name, city, sport)));
+        if (name.length() > 0) {
+            teamService.add(Lists.newArrayList(new Team(name, city, sport)));
+        }
 
-        model.addAttribute("teams", teamService.findAll());
-        return "team/index";
+        return DEFAULT_REDIRECT_TO_TEAM;
+    }
+
+    @RequestMapping(value = "/team/remove", method = RequestMethod.POST)
+    public String removeTeam(Model model, @NonNull @RequestParam Long teamId) {
+
+        teamService.removeTeam(teamId);
+
+        return DEFAULT_REDIRECT_TO_TEAM;
     }
 
 }

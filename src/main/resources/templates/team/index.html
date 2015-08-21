@@ -38,6 +38,14 @@
                 <td th:text="${team.teamName}"/>
                 <td th:text="${team.location}"/>
                 <td th:text="${team.sport}"/>
+
+                <td>
+                    <form action="/team/remove" method="post">
+                        <input type="hidden" th:value="${team.teamId}" name="teamId"/>
+                        <input type="submit" value="Delete"/>
+                    </form>
+
+                </td>
             </tr>
         </tbody>
     </table>

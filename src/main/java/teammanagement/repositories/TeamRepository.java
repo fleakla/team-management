@@ -1,6 +1,6 @@
 package teammanagement.repositories;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import teammanagement.entities.Team;
 
@@ -9,8 +9,7 @@ import teammanagement.entities.Team;
  * @author Lewis A. Fleak
  */
 @Repository
-public interface TeamRepository extends CrudRepository<Team,Long> {
-
+public interface TeamRepository extends PagingAndSortingRepository<Team,Long> {
 
 
 }
