@@ -30,7 +30,7 @@ public class TeamController {
     }
 
     @RequestMapping(value = "/team/add", method = RequestMethod.POST)
-    public String addTeam(Model model, @RequestParam @NonNull String name, @RequestParam String city, @RequestParam String sport) {
+    public String addTeam(@RequestParam @NonNull String name, @RequestParam String city, @RequestParam String sport) {
 
         if (name.length() > 0) {
             teamService.add(Lists.newArrayList(new Team(name, city, sport)));
@@ -40,7 +40,7 @@ public class TeamController {
     }
 
     @RequestMapping(value = "/team/remove", method = RequestMethod.POST)
-    public String removeTeam(Model model, @NonNull @RequestParam Long teamId) {
+    public String removeTeam(@NonNull @RequestParam Long teamId) {
 
         teamService.removeTeam(teamId);
 
